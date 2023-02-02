@@ -1,0 +1,46 @@
+{% load static %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Adicionar CNPJ</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <!-- Formulario -->
+        <form>
+          <div class="modal-body">
+            
+            <div class="form-group">
+              <form action="{% url 'cnpjCreate' %}" method="post" >
+                {% csrf_token %}
+                <label>Cnpj: </label>
+                <input type="text" placeholder="CNPJ" name="cnpj">
+                <br>
+                <label>Cidade: </label>
+                <input type="text" placeholder="Cidade" name="cidade">
+                <br>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </form>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% block scripts %}
+  <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+  <script>
+      $(document).ready(function(){
+          $("#id_cnpj").mask("00.000.000/0000-00");
+      });
+  </script>
+{% endblock %}

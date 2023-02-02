@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' type= "text/css" href="{% static 'css/styles.css' %}">
+    <title>{% block Cadastro %}{% endblock %}</title>
+    <style>
+    </style>
+</head>
+
+  <body>
+    <div class="container">
+      <h1>Cadastro de Empresas</h1>  
+      <hr>
+      <h2 id="texto1">Dados Cadastrais</h2>
+      <br>
+      <form action="" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+      </form>
+      <br>
+      <a class="btn btn-primary" data-toggle="modal" data-target="#myModal">Cadastrar CNPJ</a>
+      
+      <script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    </div>
+  </body>
+  
+</html>
+    
+{% include "./person_modal.html" %}
+
+{% endblock %}
+

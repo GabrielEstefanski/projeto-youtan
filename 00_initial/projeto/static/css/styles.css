@@ -1,0 +1,101 @@
+/* Position fixed*/
+
+.container-fluid {
+    padding: 0;
+
+}
+
+/* navbar */
+
+.navbar {
+    border-bottom: 1px solid black;
+    margin-bottom: 20px; 
+}
+
+.navbar-nav {
+    margin: auto;
+    
+}
+
+.navbar-brand{
+    font-weight: bold;
+    
+}
+
+.navbar-light .navbar-nav a.nav-link{
+    color: #333;
+    letter-spacing: 1px;
+}
+
+.add-div{
+    background-color: #e23434;
+    cursor: pointer;
+    display: inline-block;
+    color: #FFF;
+    padding: 8px;
+    border-radius: 5px;
+    margin-right: 25px;
+}
+
+.fas.fa-plus{
+    color: #FFF;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.fas.fa-search{
+    position: absolute;
+    top: 12px;
+    right: 26px;
+}
+
+.search-div {
+    padding: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.navbar-full{
+    letter-spacing: 1px;
+}
+
+.list-div {
+    padding: 0;
+}
+
+.empresa-list {
+    padding-left: 0;
+}
+
+.empresa-item {
+    list-style: none;
+    font-size: 20px;
+    height: 50px;
+    padding-top: 10px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.fas.fa-trash, .fas.fa-edit{
+    cursor: pointer;
+    margin: 5px;
+    font-size: 20px;
+    float: right;
+}
+
+.status-empresa{
+    padding: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+    color: #15B141
+}
+
+.fas.fa-trash{
+    color: red
+}
+
+.fas.fa-edit{
+    color: #15B141
+}
+

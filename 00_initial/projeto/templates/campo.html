@@ -1,0 +1,73 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<head>
+    <style>
+        .btn_submit{
+            color: rgb(255, 255, 255);
+        }
+        
+        .btn.btn-primary{
+            float: left;
+        }
+
+        .ativo{
+            cursor: pointer;
+            margin: 7px;
+            font-size: 20px;
+            float: right;
+        }
+
+        .form-control{
+            display: inline-block;
+            margin: 0 15px;
+            width: 40%;
+        }
+    </style>
+</head>
+
+<div class="offset-1 col-10 list-div">
+    <button type="submit" class="btn btn-primary"><a href="cadastrar/empresa/" class="btn_submit">Cadastrar</a></button>  
+    <form action="?" method="GET">
+        
+            <input class="form-control" type="search" id="search" value="{{ request.GET.nome }}" name="nome" placeholder="Digite o nome da empresa">
+    </form>
+    <br>
+    <ul class="empresa-list">
+        {% for empresa in object_list %}
+        <li class="empresa-item">
+            <span>{{empresa.nome}}</span>                                       
+            <span><a href="{% url 'excluir-empresa' empresa.pk %}"><i class="fas fa-trash"></i></a></span>
+            <span><a href="{% url 'editar-empresa' empresa.pk %}"><i class="fas fa-edit"></i></a></span>
+            <span class="ativo">[{{empresa.ativo}}]</span>
+            
+        </li>
+        
+        {% empty %}
+        <li>
+            <td colspan="3">Nenhuma empresa registrada.</td>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <ul class="pagination justify-content-center">
+
+        {% if page_obj.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page=1">&laquo; Primeira</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a></li>
+        {% endif %}
+
+        <li class="page-item">
+            <span class="page-link">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.</span>
+        </li>
+
+        {% if page_obj.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Próxima</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Última &raquo;</a></li>
+        {% endif %}
+    </ul>
+
+</div>
+
+{% include "./person_modal.html" %}
+{% endblock %}
