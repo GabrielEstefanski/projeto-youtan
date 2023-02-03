@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 
 from projeto.crm.models import *
 
-DIR_LIST = "C:/Users/R31_d0_R0CK/Desktop/projeto-python/00_initial/projeto/templates/"
+DIR_LIST = "digite_o_path_aqui/projeto-youtan/00_initial/projeto/templates/"
 
 class empresaCreate(CreateView):
    model = Empresa
